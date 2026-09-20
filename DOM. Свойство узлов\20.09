@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>      
+        .test {
+            color: rgb(250, 35, 11);
+        }
+        .test2
+        {
+            background-color: rgb(163, 240, 163);
+        }
+        .test3
+        {
+            color: rgb(11, 11, 250);
+        }
+        .active
+        {
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <p id="header">Header</p>
+    <p class="note">Note 1</p>
+    <p class="note">Note 2</p>
+
+    <p class="item">Item 1</p>
+    <p class="item">Item 2</p>
+    <p class="message">Message 1</p>
+
+    <input type="text" name="username">
+
+    <p name="email">Email</p>
+
+    <input type="checkbox" name="option">
+    <input type="checkbox" name="option">
+    <input type="checkbox" name="option">
+    
+    <p id="footer">Footer</p>
+
+    <p id="menu">Menu</p>
+
+</div>
+
+<script>
+    // 1. Найдите элемент с id="header" и измените его текст на «Добро пожаловать».
+   let header = document.getElementById("header");
+    header.innerHTML = "<p>Добро пожаловать</p>";
+ //  header.textContent = "<p>Добро пожаловать</p>";
+ //header.outerHTML="<div> Просто div</div>" ;
+ //header.classList.add("test");
+ //header.classList.remove("test");
+  //header.classList.add("test2");
+
+//2.Получите элемент с id="main" и задайте ему зелёный фон.
+    let main = document.getElementById("main")
+    main.classList.add("test2")
+//3.Используя getElementsByClassName, выберите все элементы с классом "note" и измените их цвет текста на синий.
+    let note = document.getElementsByClassName("note")
+    for (let i = 0; i < note.length; i++)
+    {
+        note[i].classList.add("test3")
+    }
+//4.Подсчитайте количество элементов с классом "item" и выведите это число в консоль.
+    let item = document.getElementsByClassName("item")
+
+    let a = 0;
+        let i = 0;
+
+    while (item[i])
+    {
+        a++;
+        i++;
+    }
+    console.log(a)
+
+//5.Измените содержимое всех элементов с классом "message" на строку «Обновлено».
+    let mes = document.getElementsByClassName("message")
+
+    for (let i = 0; i < mes.length; i++)
+    {
+        mes[i].innerHTML = "Обновлено"
+    }
+    console.log(mes)
+
+//6. Получите значение поля ввода с name="username" и выведите его в консоль.
+    let user = document.getElementsByName("username")
+    console.log(user[0].value)
+
+//7. Установите значение поля с name="email" равным "student@example.com".
+    let email = document.getElementsByName("email")
+    email[0].innerHTML = "student@example.com"
+
+//8. Используя getElementsByName, посчитайте количество отмеченных чекбоксов с name="option".
+    let check = document.getElementsByName("option")
+    let count = 0
+    for(let i = 0 ; i < check.length; i++)
+    {
+        if (check[i].checked)
+        {
+            count++
+        }
+    }
+    console.log(count)
+
+//9. Найдите элемент с id="footer" и сделайте его невидимым (например, через style.display = "none").
+    let footer = document.getElementById("footer")
+    footer.style.display = "none"
+
+//10.Получите элемент с id="menu" и добавьте ему класс "active".
+    let menu = document.getElementById("menu")
+    menu.classList.add("active")
+
+</script>
+    
+</body>
+</html>
