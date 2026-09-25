@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 04</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Задание:
+        Перепишите функцию конструктор Rect. Вынесите методы из экземпляра в прототип.
+        */
+
+        function Rect(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        Rect.prototype.getArea = function () {
+            return this.height * this.width;
+        }
+        Rect.prototype.getPerimeter = function () {
+            return this.height * 2 + this.width * 2;
+        }
+
+        let rect = new Rect(30, 20);
+        console.log(rect.getArea());
+
+
+
+        //1
+
+        function Circle(radius)
+        {
+            this.radius = radius;
+        }
+        Circle.prototype.getArea = function()
+        {
+            return this.radius;
+        }
+        Circle.prototype.getCircumference = function()
+        {
+            return this.radius;
+        }
+        let circle = new Circle(10)
+        console.log(circle.getArea())
+        console.log(circle.getCircumference())
+
+        //2
+
+        function User(name, age)
+        {
+            tisname = name
+            this.age = age
+        }
+        User.prototype.sayHello = function()
+        {
+            return this.name 
+        }
+        User.prototype.isAdult = function()
+        {
+            return this.age
+        }
+
+        let user = new User("Ivan", 40)
+        console.log(user.sayHello())
+        console.log(user.isAdult())
+
+        //3
+
+        function Traingle(a, b, c)
+        {
+            this.a = a
+            this.b = b
+            this.c = c
+        }
+        Traingle.prototype.getPerimeter = function()
+        {
+            return this.a + this.b + this.c
+        }
+
+        Traingle.prototype.getArea = function()
+        {
+            let p = (this.a + this.b + this.c) / 2
+            return (p * (p - this.a) * (p - this.b) * (p - this.c)) ** 0.5 
+        }
+        let traingle = new Traingle(4, 5, 6)
+        console.log(traingle.getPerimeter())
+        console.log(traingle.getArea())
+
+
+    </script>
+</body>
+
+</html>
+
+<!--  Задание 1: Круг
+Задание:  
+Создайте конструктор Circle(radius).
+Вынесите методы getArea() и getCircumference() в прототип.
+
+ Задание 2: Пользователь
+Задание:  
+Создайте конструктор User(name, age).
+Вынесите методы sayHello() и isAdult() в прототип.
+
+sayHello() выводит строку "Привет, меня зовут <name>".
+
+isAdult() возвращает true, если возраст ≥ 18.
+
+ Задание 3: Треугольник
+Задание:  
+Создайте конструктор Triangle(a, b, c).
+Вынесите методы getPerimeter() и getArea() в прототип.
+
+getPerimeter() возвращает сумму сторон.
+
+getArea() вычисляет площадь по формуле Герона. -->
