@@ -1,0 +1,51 @@
+class StudentCard {
+            constructor(name, age, faculty, year) {
+                this.name = name
+                this.age = age
+                this.faculty = faculty
+                this.year = year
+            }
+
+            getFaculty() {
+                return this.faculty
+            }
+
+            setFaculty(faculty) {
+                this.faculty = faculty
+            }
+
+            Introduce() {
+                console.log(`Студент ${this.name}, ${this.age} лет, факультет ${this.faculty}, курс ${this.year}.`)
+            }
+
+            PrintInfo() {
+                document.querySelector('.card-name').textContent = `NAME: ${this.name}`
+                document.querySelector('.card-age').textContent = `AGE: ${this.age}`
+                document.querySelector('.card-fac').textContent = `FACULTY: ${this.faculty}`
+                document.querySelector('.card-year').textContent = `YEAR: ${this.year}`
+            }
+
+            UpdateYear(){
+                while(this.year < 4) {
+                    this.year++
+                    console.log(`Студент ${this.name} перешел на ${this.year} курс.`)
+                }
+                console.log(`Студент ${this.name} закончил обучение.`)
+            }
+            Graduate() {
+                if (this.year >= 4) {
+                    console.log(`Студент ${this.name} закончил обучение.`)
+                } 
+                else {
+                    console.log(`Студент ${this.name} еще не закончил обучение.`)
+                }
+            }
+        }
+
+        let student1 = new StudentCard("Масик", 5, "Математика", 2)
+        student1.PrintInfo()
+        student1.Introduce()
+        student1.UpdateYear()
+        student1.Graduate()
+        student1.setFaculty("Физика")
+        student1.PrintInfo()
