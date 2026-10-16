@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+    <header>
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#">Новости</a>
+            <a href="#">Контакты</a>
+        </nav>
+        <div>
+            <input type="radio" name="theme" id="red">
+            <label for="red">&#128308</label>
+
+            <input type="radio" name="theme" id="yellow">
+            <label for="yellow">&#128993</label>
+            
+            <input type="radio" name="theme" id="green">
+            <label for="green">&#128994</label>
+
+
+            <input type="radio" name="theme" id="light" checked>
+            <label for="light">&#127774</label>
+
+            <input type="radio" name="theme" id="dark">
+            <label for="dark">&#127769</label>
+        </div>
+    </header>
+    <div class="container">
+    <div class="sidebar">
+        <button type="button">Главная</button>
+        <button type="button">Новости</button>
+        <button type="button">Контакты</button>
+    </div>
+
+
+    <main>
+        <h1>Моя страница</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui velit molestias cum accusantium! Eveniet animi
+            itaque nostrum quia aliquid. Tempore perspiciatis doloremque recusandae veritatis voluptas mollitia est aut!
+            Aliquam, vitae!</p>
+    </main>
+    </div>
+
+    <footer class="foter">
+        <p>2026 Мой Сайт.</p>
+    </footer>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>
