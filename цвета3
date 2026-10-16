@@ -1,0 +1,140 @@
+html {
+    height: 100%;
+}
+body{
+    height: 100%;
+    margin: 0;
+    flex-direction: column;
+    background-color: white;
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header
+{
+    background-color: #ddd;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+    margin-right: 15px;
+}
+.dark
+{
+    background-color: #222;
+    color:white;
+}
+.dark header{
+    background-color: #111;
+}
+.dark footer{
+    background-color: #111;
+}
+.dark p{
+    color: white;
+}
+.dark nav a{
+    color:white;
+}
+ main{
+    padding: 20px;
+ }
+
+.red header{
+    background-color: brown;
+    
+}
+.red footer{
+    background-color: brown;
+}
+.red p{
+    color: white;
+}
+.red nav a{
+    color:white;
+}
+.red
+{
+    background-color: #ff5959;
+    color:rgb(255, 255, 255);
+}
+
+.green{
+    background-color: green;
+    color: #ccc
+}
+.green nav a{
+    color:white;
+}
+
+.green header{
+    background-color: darkgreen;
+}
+.green footer{
+    background-color: darkgreen;
+}
+.green p{
+    color: white;
+}
+
+
+
+.yellow{
+    background-color: yellow;
+    color: #ccc
+}
+.yellow nav a{
+    color:white;
+}
+
+.yellow header{
+    background-color: orange;
+}
+.yellow footer{
+    background-color: orange;
+}
+.yellow p{
+    color: white;
+}
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.sidebar button {
+    padding: 8px 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    width: 120px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    flex: 1 0 auto;
+}
+
+
+.foter {
+    text-align: center;
+    padding: 20px;
+    background: #b3b3b3;
+    font-family: sans-serif;
+    font-size: 14px;
+}
