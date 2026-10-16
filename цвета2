@@ -1,0 +1,95 @@
+let light = document.getElementById("light");
+let dark = document.getElementById("dark");
+let rainbow = document.getElementById("rainbow")
+let green = document.getElementById("green")
+let yellow = document.getElementById("yellow")
+
+light.addEventListener("change", function()
+{
+    document.body.classList.remove("dark");
+} );
+
+
+dark.addEventListener("change", function()
+{
+    document.body.classList.add("dark");
+} );
+
+
+red.addEventListener("change", function(){
+    document.body.classList.add("red");
+});
+
+green.addEventListener("change", function(){
+    document.body.classList.add("green")
+})
+
+yellow.addEventListener("change", function(){
+    document.body.classList.add("yellow")
+})
+
+
+light.addEventListener("change", function()
+{
+    document.body.classList.remove("red");
+} );
+
+
+dark.addEventListener("change", function()
+{
+    document.body.classList.remove("red");
+} );
+
+green.addEventListener("change", function(){
+    document.body.classList.remove("red");
+})
+
+yellow.addEventListener("change", function(){
+    document.body.classList.remove("red")
+})
+
+
+
+light.addEventListener("change", function()
+{
+    document.body.classList.remove("green");
+} );
+
+
+dark.addEventListener("change", function()
+{
+    document.body.classList.remove("green");
+} );
+
+red.addEventListener("change", function(){
+    document.body.classList.remove("green");
+})
+
+
+yellow.addEventListener("change", function(){
+    document.body.classList.remove("green")
+})
+
+
+
+light.addEventListener("change", function()
+{
+    document.body.classList.remove("yellow");
+} );
+
+
+dark.addEventListener("change", function()
+{
+    document.body.classList.remove("yellow");
+} );
+
+red.addEventListener("change", function(){
+    document.body.classList.remove("yellow");
+})
+
+
+green.addEventListener("change", function(){
+    document.body.classList.remove("yellow")
+})
+
+
