@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        #score-board {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 10;
+            user-select: none;
+        }
+
+        #player {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        #pastka {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        #monetka {
+            width: 50px;
+            height: 50px;
+            background-color: #ffde00;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="score-board">Счёт: <span id="score">0</span></div>
+    <div id="player"></div>
+    <div id="monetka"></div>
+    <div id="pastka"></div>
+
+<script>
+    const player = document.getElementById("player")
+    const monetka = document.getElementById("monetka")
+    const pastka = document.getElementById("pastka")
+    const scoreElement = document.getElementById("score")
+
+    let score = 0
+    let x = 100
+    let y = 100
+    const step = 10
+
+    function getRandomPosition(elementWidth, elementHeight) {
+        const maxX = window.innerWidth - elementWidth
+        const maxY = window.innerHeight - elementHeight
+        return {
+            x: Math.random() * maxX,
+            y: Math.random() * maxY
+        };
+    }
+
+    function moveMonetka()
+    {
+        const pos = getRandomPosition(50, 50)
+        monetka.style.left = pos.x + "px"
+        monetka.style.top = pos.y + "px"
+    }
+
+    function movePastka()
+    {
+        const pos = getRandomPosition(40, 40)
+        pastka.style.left = pos.x + "px"
+        pastka.style.top = pos.y + "px"
+    }
+
+    function isColliding(rect1, rect2)
+    {
+        return !(
+            rect1.right < rect2.left ||
+            rect1.left > rect2.right ||
+            rect1.bottom < rect2.top ||
+            rect1.top > rect2.bottom
+        );
+    }
+
+    function checkCollision()
+    {
+        const playerRect = player.getBoundingClientRect()
+        const monetkaRect = monetka.getBoundingClientRect()
+        const pastkaRect = pastka.getBoundingClientRect()
+
+        if (isColliding(playerRect, monetkaRect))
+        {
+            score += 1
+            scoreElement.textContent = score
+            moveMonetka()
+            movePastka()
+        }
+
+        if (isColliding(playerRect, pastkaRect))
+        {
+            alert("Вы попали в ловушку! Игра окончена. Ваш счёт: " + score)
+            score = 0
+            scoreElement.textContent = score
+            x = 100
+            y = 100
+            player.style.left = x + "px"
+            player.style.top = y + "px"
+            moveMonetka()
+            movePastka()
+        }
+    }
+
+    moveMonetka()
+    movePastka()
+
+    document.addEventListener("keydown", function (event)
+    {
+        if (
+            event.key === "ArrowUp" ||
+            event.key === "ArrowDown" ||
+            event.key === "ArrowLeft" ||
+            event.key === "ArrowRight"
+        ) {
+            event.preventDefault()
+        }
+
+        if (event.key === "ArrowUp") y -= step
+        if (event.key === "ArrowDown") y += step
+        if (event.key === "ArrowLeft") x -= step
+        if (event.key === "ArrowRight") x += step
+
+        x = Math.max(0, Math.min(window.innerWidth - 50, x))
+        y = Math.max(0, Math.min(window.innerHeight - 50, y))
+
+        player.style.left = x + "px"
+        player.style.top = y + "px"
+
+        checkCollision();
+    });
+</script>
+</body>
+</html>
