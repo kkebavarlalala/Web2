@@ -1,0 +1,31 @@
+window.addEventListener('DOMContentLoaded', () => {
+    const apiKey = 'd77e8a80bfcc7551c3135a39d716ce92';
+    const input = document.getElementById('input');
+    const btn = document.getElementById('btn');
+    const weatherElement = document.getElementById('weather');
+    const iconw = document.getElementById('img');
+    const cit = document.getElementById('city');
+
+    function loadWeather(city) 
+    {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ru`;
+
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                cit.innerText = data.name;
+                iconw.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+                weatherElement.innerHTML = `Температура: ${data.main.temp}°C<br>Описание: ${data.weather[0].description}`;
+            });
+    }
+
+    btn.addEventListener('click', () => {
+        loadWeather(input.value);
+    });
+
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') loadWeather(input.value);
+    });
+
+    loadWeather('lvov');
+});
